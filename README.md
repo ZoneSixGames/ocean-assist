@@ -1,5 +1,4 @@
-# ocean-assist
-<h3><strong>Ocean Assist Technical Description</strong></h3>
+# Ocean Assist Technical Description
 
 <h3><strong>Introduction:</strong></h3>
 
