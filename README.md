@@ -1,13 +1,13 @@
 # ocean-assist
-<p><span style="font-size:24pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Ocean Assist Technical Description</strong></span></span></span></p>
+<h3><strong>Ocean Assist Technical Description</strong></h3>
 
-<p><span style="font-size:20pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Introduction:</strong></span></span></span></p>
+<h3><strong>Introduction:</strong></h3>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">The goal of the Ocean Assist platform is to develop a carbon offset ecosystem that uses machine learning to validate site clean up actions and rewards XRP micro-payments using authentication with the </span></span></span><a href="https://xumm.app/" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>Xumm App</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">. We plan to implement a novel real-world use case of video action classification to identify and reward sustainability actions using a decentralized geo-location based network authentication. This actionable value can potentially be transferred into certified carbon offset credits with Non-Fungible Token receipts registered on the XRPL, which will drive continuous rewards into an action rewards XRP liquidity pool.</span></span></span></p>
+<p>The goal of the Ocean Assist platform is to develop a carbon offset ecosystem that uses machine learning to validate site clean up actions and rewards XRP micro-payments using authentication with the </span></span></span><a href="https://xumm.app/" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>Xumm App</u></span></span></span></a>. We plan to implement a novel real-world use case of video action classification to identify and reward sustainability actions using a decentralized geo-location based network authentication. This actionable value can potentially be transferred into certified carbon offset credits with Non-Fungible Token receipts registered on the XRPL, which will drive continuous rewards into an action rewards XRP liquidity pool.</p>
 
-<p><a href="https://arxiv.org/abs/2012.06567" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>A Comprehensive Study of Deep Video Action Recognition</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> is an excellent analysis of previous neural model implementations and research in this area, upon which we have based our own implementation strategy. In particular, our aim is to utilize self-supervised learning to leverage a large amount of unlabeled input data by designing a pretext task to obtain free supervisory signals from data itself.</span></span></span></p>
+<p><a href="https://arxiv.org/abs/2012.06567" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>A Comprehensive Study of Deep Video Action Recognition</u></span></span></span></a> is an excellent analysis of previous neural model implementations and research in this area, upon which we have based our own implementation strategy. In particular, our aim is to utilize self-supervised learning to leverage a large amount of unlabeled input data by designing a pretext task to obtain free supervisory signals from data itself.</p>
 
-<p><span style="font-size:12pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Desired objectives of ML Action Identification implementation for Ocean Assist:</strong></span></span></span></p>
+<h4><strong>Desired objectives of ML Action Identification implementation for Ocean Assist:</strong></h4>
 
 <ul>
 	<li style="list-style-type:disc"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Identify waterfront scene or site landmarks</span></span></span></li>
@@ -16,24 +16,24 @@
 	<li style="list-style-type:disc"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Compare beginning and end or before and after of a scene to validate removal of object.</span></span></span></li>
 </ul>
 
-<p><span style="font-size:24pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Project Components</strong></span></span></span></p>
+<h2><strong>Model Components</strong></h2>
 
-<p><span style="font-size:18pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Sample Collection</strong></span></span></span></p>
+<h3><strong>Sample Collection</strong></h3>
 
 <ul>
 	<li style="list-style-type:disc"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Collect sample video of before and after site cleaning as well as actions of cleaning that area (1000+ scenes of sample media recommended).</span></span></span></li>
 	<li style="list-style-type:disc"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Create a standard to normalize user data collection including orientation of camera, resolution, distance from scene, area size, etc.</span></span></span></li>
 </ul>
 
-<h2><span style="font-size:18pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Dataset Preparation</strong></span></span></span></h2>
+<p><strong>Dataset Preparation</strong></p>
 
-<h3><span style="font-size:13pt"><span style="font-family:Arial"><span style="color:#000000"><strong><em>Notes on Video Data format for MMAction from</em></strong></span></span></span><a href="http://www.openmmlab.com" style="text-decoration:none"><span style="font-size:13pt"><span style="font-family:Arial"><span style="color:#000000"><strong><em> </em></strong></span></span></span><span style="font-size:13pt"><span style="font-family:Arial"><span style="color:#1155cc"><strong><em><u>OpenMMLab</u></em></strong></span></span></span></a></h3>
+<p><em>Notes on Video Data format for MMAction from</em><a href="http://www.openmmlab.com" style="text-decoration:none"><span style="font-size:13pt"><span style="font-family:Arial"><span style="color:#000000"><strong><em> </em></strong></span></span></span><span style="font-size:13pt"><span style="font-family:Arial"><span style="color:#1155cc"><strong><em><u>OpenMMLab</u></em></strong></span></span></span></a></p>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">MMAction supports two types of data format: raw frames and video. The former is widely used in previous projects such as </span></span></span><a href="https://github.com/yjxiong/temporal-segment-networks" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>TSN</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">. This is fast (especially when SSD is available) but fails to scale to the fast-growing datasets. (For example, the newest edition of </span></span></span><a href="https://deepmind.com/research/open-source/open-source-datasets/kinetics/" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>Kinetics</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> has 650K videos and the total frames will take up several TBs.) The latter saves much space but is slower due to video decoding at execution time. To alleviate this issue, we use </span></span></span><a href="https://github.com/zhreshold/decord" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>decord</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> for efficient video loading.</span></span></span></p>
+<p>MMAction supports two types of data format: raw frames and video. The former is widely used in previous projects such as <a href="https://github.com/yjxiong/temporal-segment-networks" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>TSN</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">. This is fast (especially when SSD is available) but fails to scale to the fast-growing datasets. (For example, the newest edition of </span></span></span><a href="https://deepmind.com/research/open-source/open-source-datasets/kinetics/" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>Kinetics</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> has 650K videos and the total frames will take up several TBs.) The latter saves much space but is slower due to video decoding at execution time. To alleviate this issue, we use </span></span></span><a href="https://github.com/zhreshold/decord" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>decord</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> for efficient video loading.</span></span></span></p>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">For action recognition, both formats are supported. For temporal action detection and spatial-temporal action detection, we still recommend the format of raw frames.</span></span></span></p>
+<p>For action recognition, both formats are supported. For temporal action detection and spatial-temporal action detection, we still recommend the format of raw frames.</p>
 
-<h3><span style="font-size:12pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Supported datasets</strong></span></span></span></h3>
+<p><strong>Supported datasets</strong></p>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">The supported datasets are listed below. We provide shell scripts for data preparation under the path $MMACTION/data_tools/. To ease usage, we provide tutorials of data deployment for each dataset.</span></span></span></p>
 
@@ -47,9 +47,9 @@
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">You can switch to </span></span></span><a href="https://github.com/open-mmlab/mmaction/tree/master/GETTING_STARTED.md" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>GETTING_STARTED.md</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> to train and test the model.</span></span></span></p>
 
-<h3><span style="font-size:12pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Prepare annotations</strong></span></span></span></h3>
+<p><span style="font-size:12pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Prepare annotations</strong></span></span></span></p>
 
-<h3><span style="font-size:12pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Prepare videos</strong></span></span></span></h3>
+<p><span style="font-size:12pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Prepare videos</strong></span></span></span></p>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Please refer to the official website and/or the official script to prepare the videos. Note that the videos should be arranged in either (1) a two-level directory organized by ${CLASS_NAME}/${VIDEO_ID} or (2) a single-level directory. It is recommended using (1) for action recognition datasets (such as UCF101 and Kinetics) and using (2) for action detection datasets or those with multiple annotations per video (such as THUMOS14 and AVA).</span></span></span></p>
 
@@ -57,7 +57,7 @@
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">To extract frames (optical flow, to be specific), </span></span></span><a href="https://github.com/yjxiong/dense_flow" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>dense_flow</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> is needed.&nbsp;&nbsp;</span></span></span></p>
 
-<p><span style="font-size:18pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Model Training</strong></span></span></span></p>
+<h3><span style="font-size:18pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Model Training</strong></span></span></span></h3>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Ocean Assist will potentially experiment with a couple of different pre-trained action detection models. We will be evaluating their accuracy of desired action prediction alongside latency and throughput speeds. Of course, training models is expensive, so we will evaluate the cost effectiveness for project feasibility before running sample data on any model.</span></span></span></p>
 
@@ -84,31 +84,31 @@
 
 <p>&nbsp;</p>
 
-<p><span style="font-size:22pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Application Framework:</strong></span></span></span></p>
+<h2><span style="font-size:22pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Application Framework:</strong></span></span></span></h2>
 
-<p><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Geo-location based XRPL authentication</strong></span></span></span></p>
+<h3><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Geo-location based XRPL authentication</strong></span></span></span></h3>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">In order to prevent spamming or exploitation of the rewards platform, users will need to authenticate their account using Xumm wallet sign in and pin the geo-location of a clean-up action. The user will not be able to submit another clean-up event in that same location (or within a certain distance range) until a minimum amount of time has passed. Here is </span></span></span><a href="https://github.com/BlockLagoon/FieldBoss" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>example code for a geo-location based XRPL NFT minter</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> by BlockLagoon.</span></span></span></p>
 
-<p><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Dashboard for tracking data and rewards</strong></span></span></span></p>
+<h3><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Dashboard for tracking data and rewards</strong></span></span></span></h3>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">A simple graphic user interface to track environmental footprint, clean-up actions, estimated carbon offset, rewards points, and XRP payouts.</span></span></span></p>
 
-<p><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Data visualization of global clean up efforts</strong></span></span></span></p>
+<h3><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Data visualization of global clean up efforts</strong></span></span></span></h3>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">A curated user experience made using </span></span></span><a href="https://reactjs.org/" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>React </u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">and </span></span></span><a href="https://threejs.org/" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>Three.js</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">, designed to incentivize healthy gamified competition amongst different areas, groups, individuals, or countries! Challenge a friend to a clean-up competition from different parts of the world.&nbsp;</span></span></span></p>
 
-<p><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Peer-to-peer XRP token donation</strong></span></span></span></p>
+<h3><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Peer-to-peer XRP token donation</strong></span></span></span></h3>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Feeling generous? Reward others for their efforts directly with a simple XRP donation function. Example embeddable button code by </span></span></span><span style="font-size:10.5pt"><span style="font-family:Arial"><span style="color:#000000"><span style="background-color:#f6f8fa">Evan Schwartz</span></span></span></span><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> here:&nbsp; </span></span></span><a href="https://github.com/emschwartz/ripple-donate-widget" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>https://github.com/emschwartz/ripple-donate-widget</u></span></span></span></a></p>
 
-<p><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Rewards Calculator &amp; XRP Liquidity Pool</strong></span></span></span><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000">&nbsp;</span></span></span></p>
+<h3><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Rewards Calculator &amp; XRP Liquidity Pool</strong></span></span></span><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000">&nbsp;</span></span></span></h3>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">The Rewards Calculator will be an automated system (potentially using XRPL web hooks after the amendment is passed) that rewards XRP for accumulated clean-up action points. Clean-up action points will be awarded on a range based on the action identified by the model. For instance, placing a paper cup in the trash will yield less action points than placing a paper cup in an obvious recycling receptacle, although both will yield some small amount of points. The action points will then be converted into XRP and transferred in micro-payments when they have accumulated to a minimum XRP value (to be determined).&nbsp;</span></span></span></p>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">The action rewards XRP liquidity pool will implement the expanded multi-signature capabilities of the XRPL to ensure security of assets and a decentralized authorization structure for future changes to the rewards system after it has been initiated.</span></span></span></p>
 
-<p><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Environmental Footprint calculator</strong></span></span></span></p>
+<h3><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Environmental Footprint calculator</strong></span></span></span></h3>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">A calculator to estimate consumption and environmental footprint for individuals and businesses. Sample carbon calculator repositories include:</span></span></span></p>
 
@@ -121,7 +121,7 @@
 
 <p>&nbsp;</p>
 
-<p><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Carbon Credit Marketplace</strong></span></span></span></p>
+<h3><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Carbon Credit Marketplace</strong></span></span></span></h3>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">In order to provide sustainable rewards to the users in the ecosystem, Ocean Assist plans to offer network authenticated carbon offset packages utilizing the issuance of Non-Fungible Tokens on the XRPL.</span></span></span></p>
 
@@ -140,7 +140,3 @@
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Transfers and acquisitions of these units are tracked and recorded through the </span></span></span><a href="https://unfccc.int/kyoto_protocol/registry_systems/items/2723.php" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>registry systems</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> under the Kyoto Protocol.</span></span></span></p>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">An </span></span></span><a href="https://unfccc.int/kyoto_protocol/registry_systems/itl/items/4065.php" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>international transaction log</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> ensures secure transfer of emission reduction units between countries.</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
