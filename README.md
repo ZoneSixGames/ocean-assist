@@ -2,9 +2,9 @@
 
 <h3><strong>Introduction:</strong></h3>
 
-<p>The goal of the Ocean Assist platform is to develop a carbon offset ecosystem that uses machine learning to validate site clean up actions and rewards XRP micro-payments using authentication with the </span></span></span><a href="https://xumm.app/" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>Xumm App</u></span></span></span></a>. We plan to implement a novel real-world use case of video action classification to identify and reward sustainability actions using a decentralized geo-location based network authentication. This actionable value can potentially be transferred into certified carbon offset credits with Non-Fungible Token receipts registered on the XRPL, which will drive continuous rewards into an action rewards XRP liquidity pool.</p>
+<p>The goal of the Ocean Assist platform is to develop a carbon offset ecosystem that uses machine learning to validate conservation actions and rewards XRP micro-payments using authentication with the </span></span></span><a href="https://xumm.app/" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>Xumm App</u></span></span></span></a>. Ocean Assist will implement a novel real-world use case of video action classification to identify and reward sustainability actions using a decentralized geo-location based network authentication. This value can be translated into certified carbon offset credits with Non-Fungible Token receipts registered on the XRPL, which will produce sustainable revenue for an action rewards XRP liquidity pool.</p>
 
-<p><a href="https://arxiv.org/abs/2012.06567" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>A Comprehensive Study of Deep Video Action Recognition</u></span></span></span></a> is an excellent analysis of previous neural model implementations and research in this area, upon which we have based our own implementation strategy. In particular, our aim is to utilize self-supervised learning to leverage a large amount of unlabeled input data by designing a pretext task to obtain free supervisory signals from data itself.</p>
+<p><a href="https://arxiv.org/abs/2012.06567" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>A Comprehensive Study of Deep Video Action Recognition</u></span></span></span></a> is an excellent analysis of previous neural model implementations and research regarding action detection, upon which we have based our own implementation strategy. In particular, our aim is to utilize self-supervised learning to leverage a large amount of unlabeled input data by designing a pretext task to obtain free supervisory signals from data itself.</p>
 
 <h4><strong>Desired objectives of ML Action Identification implementation for Ocean Assist:</strong></h4>
 
@@ -58,9 +58,9 @@
 
 <h3><span style="font-size:18pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Model Training</strong></span></span></span></h3>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Ocean Assist will potentially experiment with a couple of different pre-trained action detection models. We will be evaluating their accuracy of desired action prediction alongside latency and throughput speeds. Of course, training models is expensive, so we will evaluate the cost effectiveness for project feasibility before running sample data on any model.</span></span></span></p>
+<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Ocean Assist will experiment with a couple of different pre-trained action detection models. We will be evaluating their accuracy of desired action prediction alongside latency and throughput speeds. Training models is expensive, so we will evaluate the cost effectiveness for project feasibility before running sample data on these models.</span></span></span></p>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Potential pre-trained models include:</span></span></span></p>
+<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">Pre-trained models include:</span></span></span></p>
 
 <p><a href="https://github.com/ZoneSixGames/mmaction2" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>MMAction2</u></span></span></span></a></p>
 
@@ -103,16 +103,15 @@
 
 <h3><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Rewards Calculator &amp; XRP Liquidity Pool</strong></span></span></span><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000">&nbsp;</span></span></span></h3>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">The Rewards Calculator will be an automated system (potentially using XRPL web hooks after the amendment is passed) that rewards XRP for accumulated clean-up action points. Clean-up action points will be awarded on a ranged scale based on the action identified by the model. For instance, placing a paper cup in the trash will yield less action points than placing a paper cup in an obvious recycling receptacle, although both will yield some small amount of points. The action points will then be converted into XRP and transferred in micro-payments when they have accumulated to a minimum XRP value (to be determined).&nbsp;</span></span></span></p>
+<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">The Rewards Calculator will be an automated system (potentially using XRPL web hooks after the amendment is passed) that rewards XRP for accumulated clean-up action points. Clean-up action points will be awarded on a ranged scale based on the action identified by the model. For instance, picking up trash on the beach or other waterway will earn more points than placing a cup in a recycling receptacle, although both will yield some small amount of points. The action points will then be converted into XRP and transferred in micro-payments when they have accumulated to a minimum XRP value (to be determined).&nbsp;</span></span></span></p>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">The action rewards XRP liquidity pool will implement the expanded multi-signature capabilities of the XRPL to ensure security of assets and a decentralized authorization structure for future changes to the rewards system after it has been initiated.</span></span></span></p>
+<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">The action rewards XRP liquidity pool will implement the expanded multi-signature capabilities recently introduced to the XRPL. This will increase the security of rewards assets and create a decentralized authorization structure for future changes to the rewards system after it has been initiated.</span></span></span></p>
 
 <h3><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Environmental Footprint calculator</strong></span></span></span></h3>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">A calculator to estimate consumption and environmental footprint for individuals and businesses. Sample carbon calculator repositories include:</span></span></span></p>
 
 <ul>
-	<li style="list-style-type:disc"><a href="https://github.com/LucySaluki/carbon_footprint" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>https://github.com/LucySaluki/carbon_footprint</u></span></span></span></a></li>
 	<li style="list-style-type:disc"><a href="https://github.com/sarah926/carbonFootprint" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>https://github.com/sarah926/carbonFootprint</u></span></span></span></a></li>
 	<li style="list-style-type:disc"><a href="https://github.com/lizroper0/fe-earthbff" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>https://github.com/lizroper0/fe-earthbff</u></span></span></span></a></li>
 	<li style="list-style-type:disc"><a href="https://github.com/absambam/Carbon-Footprint-Calculator" style="text-decoration:none"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#1155cc"><u>https://github.com/absambam/Carbon-Footprint-Calculator</u></span></span></span></a><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"> (travel footprint calculator)</span></span></span></li>
@@ -122,11 +121,9 @@
 
 <h3><span style="font-size:16pt"><span style="font-family:Arial"><span style="color:#000000"><strong>Carbon Credit Marketplace</strong></span></span></span></h3>
 
-<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">In order to provide sustainable rewards to the users in the ecosystem, Ocean Assist plans to offer network authenticated carbon offset packages utilizing the issuance of Non-Fungible Tokens on the XRPL.</span></span></span></p>
+<p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">In order to provide sustainable rewards to the active conservationists in the ecosystem, Ocean Assist plans to offer verifiable carbon offset packages utilizing the issuance of Non-Fungible Tokens on the XRPL.</span></span></span></p>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">More than actual emissions units can be traded and sold under the Kyoto Protocols emissions trading scheme.</span></span></span></p>
-
-<p>&nbsp;</p>
 
 <p><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000">The other units which may be transferred under the scheme, each equal to one tonne of CO2, may be in the form of:</span></span></span></p>
 
