@@ -1,4 +1,4 @@
-# Ocean Assist Technical Description
+# Ocean Assist Project Description
 
 <h3><strong>Introduction:</strong></h3>
 
